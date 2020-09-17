@@ -7,7 +7,7 @@ class PigContainer extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="ui grid container">
                 {this.props.pigs.map(pig => <PigCard pig={pig} />)}
             </div>
         )
