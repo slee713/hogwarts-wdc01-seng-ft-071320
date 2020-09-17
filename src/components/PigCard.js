@@ -17,8 +17,8 @@ class PigCard extends Component {
         let imageName = pig.name.toLowerCase().split(" ").join("_")
         let pigImage = require(`../hog-imgs/${imageName}.jpg`)
         return(
-            <div onClick={this.handleClick} className ="ui eight wide column">
-                <img src={pigImage} alt={""} />
+            <div  className ="ui eight wide column">
+                <img src={pigImage} alt={""} onClick={this.handleClick} />
                 <p>{pig.name}</p>
                 {this.state.status ? 
                     (<div>

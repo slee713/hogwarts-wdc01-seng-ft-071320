@@ -10,7 +10,6 @@ const Sort = (props) => {
                 <label>
                     <input type="radio" value="weight" checked={props.sort==="weight"} onChange={(e) => props.sortBy(e.target.value)}/> Weight
                 </label>
-
             </p>
         </div>
     )

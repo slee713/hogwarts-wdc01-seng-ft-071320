@@ -41,6 +41,7 @@ class App extends Component {
         <Nav />
         <Filter filter={this.filterGreased} greased={this.state.filter}/>
         <Sort sortBy={this.sortPig} sort={this.state.sort}/>
+        <br/>
         <PigContainer pigs={this.state.pigs}/>
       </div>
     );
