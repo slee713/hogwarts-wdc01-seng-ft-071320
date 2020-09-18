@@ -1,8 +1,9 @@
 import React , { Component } from 'react'
-
+import CardFront from './CardFront'
+import CardBack from './CardBack'
 class PigCard extends Component {
     state = {
-        status: false
+        status: true
     }
     
     handleClick = () => {
@@ -13,20 +14,11 @@ class PigCard extends Component {
     }
 
     render(){
-        let pig = this.props.pig
-        let imageName = pig.name.toLowerCase().split(" ").join("_")
-        let pigImage = require(`../hog-imgs/${imageName}.jpg`)
+        
         return(
             <div  className ="ui eight wide column">
-                <img src={pigImage} alt={""} onClick={this.handleClick} />
-                <p>{pig.name}</p>
-                {this.state.status ? 
-                    (<div>
-                        <p>Specialty: {pig.specialty}</p>
-                        <p>Weight: {pig.weight}</p>
-                        <p>Heighest Medal Achieved: {pig['highest medal achieved']}</p>
-                    </div>)
-                : null}
+                {this.state.status ? <CardFront pig={this.props.pig} click={this.handleClick}/> : 
+                <CardBack pig={this.props.pig} click={this.handleClick} />}
             </div>
         )
     }

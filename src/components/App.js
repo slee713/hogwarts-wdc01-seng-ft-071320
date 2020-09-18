@@ -15,8 +15,8 @@ class App extends Component {
 
   filterGreased = (value) => {
     let pigList = []
-    value === "greased" ? pigList = hogs.filter(pig => pig.greased) 
-    : value === "ungreased" ? pigList = hogs.filter(pig => !pig.greased): pigList = hogs
+    value === "greased" ? pigList = this.state.pigs.filter(pig => pig.greased) 
+    : value === "ungreased" ? pigList = this.state.pigs.filter(pig => !pig.greased): pigList = this.state.pigs
     this.setState({
       filter: value,
       pigs: pigList
