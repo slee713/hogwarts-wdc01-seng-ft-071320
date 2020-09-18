@@ -13,12 +13,16 @@ class App extends Component {
     }),
     filter: "",
     sort: "",
-    displayPigs:  hogs.map(hog=> {
+    displayPigs: hogs.map(hog=> {
       return( {...hog, "clicked": true})
-    })
+    }),
   }
 
-  
+  // componentDidMount(){
+  //   this.setState({
+  //     displayPigs: this.state.pigs
+  //   })
+  // }
 
   handleClicked =(clickedHog) =>{
     let hogs = this.state.pigs.map(hog => {
