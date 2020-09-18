@@ -8,9 +8,23 @@ import PigContainer from "./PigContainer"
 
 class App extends Component {
   state = {
-    pigs: hogs,
+    pigs: hogs.map(hog=> {
+      return( {...hog, "clicked": true})
+    }),
     filter: "",
     sort: ""
+  }
+
+  handleClicked =(clickedHog) =>{
+    let hogs = this.state.pigs.map(hog => {
+      if (hog === clickedHog){
+        hog.clicked = !hog.clicked
+      }
+      return hog
+    })
+    this.setState({
+      pigs: hogs
+    })
   }
 
   filterGreased = (value) => {
@@ -42,7 +56,7 @@ class App extends Component {
         <Filter filter={this.filterGreased} greased={this.state.filter}/>
         <Sort sortBy={this.sortPig} sort={this.state.sort}/>
         <br/>
-        <PigContainer pigs={this.state.pigs}/>
+        <PigContainer pigs={this.state.pigs} clicked={this.handleClicked}/>
       </div>
     );
   }
